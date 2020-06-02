@@ -8,7 +8,6 @@ path = "images"
 fitxers = os.listdir(path)
 formatsCorrectes = ["rgb","gif","tiff","jpeg","jpg","bmp","png"]
 for f in fitxers:
-
    format =f[-3:]
    print(format)
    if(format not in formatsCorrectes):
@@ -18,7 +17,6 @@ for f in fitxers:
        shutil.move(path+"/"+ f , "noimages"+"/"+f)
      else:
        os.remove(fitxers+"/"+f)
-
 
 #TODO LListar tots els arxius de images
 
@@ -35,6 +33,7 @@ while (opcioMenu !=5):
   opcioMenu = int(input("Quina opció vols?"))
   if (opcioMenu == 1):
 
+
       #TODO agafar si amplada o alçada
       ap=input("Seleccionar per amplada o alçada")
       if(ap == "alçada"):
@@ -43,6 +42,7 @@ while (opcioMenu !=5):
 
       print("Seleccionar per amplada o alçada")
       #TODO agafar si amplada o alçada
+
 
             
       #TODO agafar la mida mínima de píxels
