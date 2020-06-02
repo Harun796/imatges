@@ -3,10 +3,12 @@ from PIL import Image
 import shutil
 from shutil import copyfile
 
+
 path = "images"
 fitxers = os.listdir(path)
 formatsCorrectes = ["rgb","gif","tiff","jpeg","jpg","bmp","png"]
 for f in fitxers:
+
    format =f[-3:]
    print(format)
    if(format not in formatsCorrectes):
@@ -16,6 +18,8 @@ for f in fitxers:
        shutil.move(path+"/"+ f , "noimages"+"/"+f)
      else:
        os.remove(fitxers+"/"+f)
+
+
 #TODO LListar tots els arxius de images
 
 #TODO Mostrar el nom dels que no són imatge
@@ -30,11 +34,16 @@ while (opcioMenu !=5):
   print("5- Sortir")
   opcioMenu = int(input("Quina opció vols?"))
   if (opcioMenu == 1):
+
       #TODO agafar si amplada o alçada
       ap=input("Seleccionar per amplada o alçada")
       if(ap == "alçada"):
         minim1=int(input("Quin es el mínim de pixels")
         os.mkdir(minim1)
+
+      print("Seleccionar per amplada o alçada")
+      #TODO agafar si amplada o alçada
+
             
       #TODO agafar la mida mínima de píxels
       
