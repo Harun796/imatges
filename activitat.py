@@ -32,27 +32,54 @@ while (opcioMenu !=5):
   print("5- Sortir")
   opcioMenu = int(input("Quina opció vols?"))
   if (opcioMenu == 1):
-
-
-      #TODO agafar si amplada o alçada
-      ap=input("Seleccionar per amplada o alçada")
-      if(ap == "alçada"):
-        minim1=int(input("Quin es el mínim de pixels")
-        os.mkdir(minim1)
-
-      print("Seleccionar per amplada o alçada")
-      #TODO agafar si amplada o alçada
-
-
-            
-      #TODO agafar la mida mínima de píxels
-      
-      #TODO crear carpeta dins la carpeta images
-      
-      #TODO llistar arxius, seleccionar per mida i copiar-los a la carpeta abans creada
+    ap=input("Seleccionar per amplada o alçada")
+    if(ap == "alçada"):
+      minim1=int(input("Quin es el mínim de pixels"))
+      os.mkdir("seleccióH"+str(minim1))
+      for g in fitxers:
+        filename = path+"/"+g
+        image = Image.open(filename)
+        width, height = image.size
+        if(height >= minim1):
+          copyfile(path + "/"+ g ,"seleccióH" + str(minim1) + "/" + g)
+    elif(ap == "amplada"):
+      minim2=int(input("Quin és el mínim de pixels"))
+      os.mkdir("seleccióW"+ str(minim2) )
+      for t in fitxers:
+        filename = path+"/"+t
+        image = Image.open(filename)
+        width, height = image.size
+        if(width >= minim2):
+          copyfile(path + "/" + t , "seleccióW" + str(minim2)+"/" + t)
   elif (opcioMenu == 2):
-  elif (opcioMenu == 3):
+    h=int(input("Quina alçada vols?"))
+    w=int(input("Quina amplada vols?"))
+    os.mkdir("thumbnail")
+    #Relative Path
+    for z in fitxers: 
+      img = Image.open(path+"/"+z) 
+      #In-place modification 
+      img.thumbnail((w,h)) 
+      img.save("thumbnail"+"/"+ z) 
+  #elif (opcioMenu == 3):
+    #donde = input("On vols ")
+    #if(donde == "dalt esquerre"):
+    #elif(donde =="dalt dreta" ):
+    #elif(donde == "baix esquerre"):
+    #elif(donde == "baix dreta"):
   elif (opcioMenu == 4):
-  else:
-      opcioMenu = 5
-print("Adéu bon dia tinguis!")
+    path2 = "jpg"
+    if(os.path.exists(path2)):
+      print("Arxiu existent")
+    else:
+      os.mkdir("jpg")
+      for r in fitxers:
+        sapo = r[-3:]
+        print(sapo)
+        if(sapo == "png"):
+          im = Image.open("images" + "/"+r)
+          im = im.convert('RGB')
+          im.save(path2+"/"+r[0:-4]+".jpg")
+  #else:
+      #opcioMenu = 5
+#print("Adéu bon dia tinguis!")

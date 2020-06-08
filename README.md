@@ -49,8 +49,8 @@ Per detectar mides d'una imatge:
 from PIL import Image 
 
 filename = "image.png"
-with Image.open(filename) as image: 
-    width, height = image.size 
+image = Image.open(filename) 
+width, height = image.size 
 ```
 
 On a width guarda l'amplada i height l'alçada.
